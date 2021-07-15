@@ -8,7 +8,9 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('DingTalkRobot')
-    .setDescription('DingTalk Robot')
+    .setDescription(
+      'DingTalk Robot, 当前机器人关键词 [ 提醒、警告、错误、成功 ]',
+    )
     .setVersion('1.0')
     .addTag('dingTalk')
     .build();

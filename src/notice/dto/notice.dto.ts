@@ -18,6 +18,5 @@ export class NoticeBody {
       content: '警告：notice！',
     },
   })
-  @IsNotEmpty()
   text: unknown;
 }

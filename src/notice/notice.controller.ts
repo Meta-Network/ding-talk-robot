@@ -37,11 +37,12 @@ export class NoticeController {
   @ApiQuery({ name: 'mode', required: true, enum: Mode })
   @ApiQuery({ name: 'name', required: true, enum: Name })
   @ApiBody({ type: NoticeBody })
+  @HttpCode(200)
   @ApiResponse({ status: 200, description: 'successfully' })
   async noticePushToDingTalk(
     @Query('mode') mode: Mode = Mode.Dev,
     @Query('name') name: Name = Name.Default,
-    @Body() body: any,
+    @Body() body: NoticeBody,
   ) {
     return await this.noticeService.noticePushToDingTalk({ mode, name, body });
   }

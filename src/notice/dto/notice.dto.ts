@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class NoticeBody {
   @ApiProperty({
@@ -7,6 +7,7 @@ export class NoticeBody {
     description: 'notice type',
     example: 'text',
   })
+  @IsString()
   @IsNotEmpty()
   msgtype: string;
 
@@ -17,5 +18,6 @@ export class NoticeBody {
       content: '警告：notice！',
     },
   })
+  @IsNotEmpty()
   text: unknown;
 }

@@ -16,14 +16,6 @@ export class NoticeService {
     name = 'default',
     body,
   }): Promise<any> {
-    const { msgtype } = body;
-    if (!msgtype) {
-      return {
-        code: -1,
-        message: 'no msgtype',
-      };
-    }
-
     try {
       const configDingTalkRobot = this.configService.get('DingTalkRobot');
 

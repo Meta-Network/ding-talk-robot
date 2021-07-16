@@ -15,7 +15,7 @@ async function bootstrap() {
     .setDescription(
       'DingTalk Robot, 当前机器人关键词 [ 提醒、警告、错误、成功 ]',
     )
-    .setVersion('1.0')
+    .setVersion('1.1')
     .addTag('dingTalk')
     .build();
   const document = SwaggerModule.createDocument(app, config);

@@ -5,7 +5,6 @@ interface HelloProps {
   code: number;
   message: string;
   doc: string;
-  version: string;
   node_env: string;
 }
 
@@ -19,7 +18,6 @@ export class AppController {
       code: 0,
       message: this.appService.getHello(),
       doc: '/openapi',
-      version: process.env.npm_package_version,
       node_env: process.env.NODE_ENV,
     };
   }

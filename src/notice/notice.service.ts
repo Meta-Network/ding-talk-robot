@@ -33,6 +33,9 @@ export class NoticeService {
         throw new Error('not url or token');
       }
 
+      Logger.info('token:', token);
+      Logger.info('body:', body);
+
       const res = await this.httpService
         .post(`${url}?access_token=${token}`, body)
         .toPromise();

@@ -18,8 +18,11 @@ export class NoticeService {
     body,
   }): Promise<any> {
     try {
+      Logger.info(`mode: ${mode}`);
+      Logger.info(`mode: ${name}`);
+
       const configDingTalkRobot = this.configService.get('DingTalkRobot');
-      Logger.info('configDingTalkRobot:', configDingTalkRobot);
+      Logger.info(`configDingTalkRobot: ${configDingTalkRobot}`);
 
       const url =
         mode === 'dev'
@@ -34,8 +37,8 @@ export class NoticeService {
         throw new Error('not url or token');
       }
 
-      Logger.info('token:', token);
-      Logger.info('body:', body);
+      Logger.info(`token: ${token}`);
+      Logger.info(`body: ${body}`);
 
       const res = await this.httpService
         .post(`${url}?access_token=${token}`, body)
@@ -52,8 +55,7 @@ export class NoticeService {
       }
       throw new Error('status !== 200');
     } catch (e) {
-      Logger.error('notice error', e.toString());
-
+      Logger.info(`notice error: ${e}`);
       return {
         code: -1,
         message: e.toString(),

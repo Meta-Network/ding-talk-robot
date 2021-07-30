@@ -3,6 +3,7 @@ import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
 import { map, Observable } from 'rxjs';
 import { ConfigService } from '@nestjs/config';
+import { Logger } from 'nest-logs';
 
 @Injectable()
 export class NoticeService {
@@ -39,6 +40,7 @@ export class NoticeService {
       // console.log('res', res);
 
       if (res.status === 200) {
+        Logger.info('notice success');
         return {
           code: 0,
           message: 'success',
@@ -46,6 +48,8 @@ export class NoticeService {
       }
       throw new Error('status !== 200');
     } catch (e) {
+      Logger.error('notice error', e);
+
       return {
         code: -1,
         message: e.toString(),

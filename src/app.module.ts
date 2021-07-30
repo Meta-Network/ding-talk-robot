@@ -6,6 +6,7 @@ import { NoticeController } from './notice/notice.controller';
 import { NoticeModule } from './notice/notice.module';
 import { HttpModule } from '@nestjs/axios';
 import { ConfigModule } from '@nestjs/config';
+import { NestLogsModule } from 'nest-logs';
 import config from './config/index';
 
 @Module({
@@ -15,6 +16,7 @@ import config from './config/index';
       load: [config],
     }),
     HttpModule,
+    NestLogsModule,
     NoticeModule,
   ],
   controllers: [AppController, NoticeController],

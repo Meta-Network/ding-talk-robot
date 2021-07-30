@@ -19,6 +19,7 @@ export class NoticeService {
   }): Promise<any> {
     try {
       const configDingTalkRobot = this.configService.get('DingTalkRobot');
+      Logger.info('configDingTalkRobot:', configDingTalkRobot);
 
       const url =
         mode === 'dev'
@@ -51,7 +52,7 @@ export class NoticeService {
       }
       throw new Error('status !== 200');
     } catch (e) {
-      Logger.error('notice error', e);
+      Logger.error('notice error', e.toString());
 
       return {
         code: -1,
